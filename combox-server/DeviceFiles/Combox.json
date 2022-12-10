@@ -1,0 +1,1553 @@
+{
+	"deviceId": "0xC9",
+	"registers": {
+		"Device Name": {
+			"address": "0x0000",
+			"name": "Device Name",
+			"type": "String",
+			"length": 16,
+			"readOnly": false
+		},
+		"FGA Number": {
+			"address": "0x000A",
+			"name": "FGA Number",
+			"type": "String",
+			"length": 15,
+			"readOnly": true
+		},
+		"Firmware Version": {
+			"address": "0x001E",
+			"name": "Firmware Version",
+			"type": "String",
+			"length": 20,
+			"readOnly": true
+		},
+		"Modbus Address": {
+			"address": "0x0028",
+			"name": "Modbus Address",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": false,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"Hardware Serial Number": {
+			"address": "0x002B",
+			"name": "Hardware Serial Number",
+			"type": "String",
+			"length": 15,
+			"readOnly": true
+		},
+		"UTC Time": {
+			"address": "0x003A",
+			"name": "UTC Time",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": false,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"Time Zone": {
+			"address": "0x003C",
+			"name": "Time Zone",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": false,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"Maintenance Status": {
+			"address": "0x003D",
+			"name": "Maintenance Status",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"System Status": {
+			"address": "0x0040",
+			"name": "System Status",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"System Wide Active Faults": {
+			"address": "0x0041",
+			"name": "System Wide Active Faults",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator State": {
+			"address": "0x0042",
+			"name": "Generator State",
+			"type": "Boolean",
+			"length": 1,
+			"readOnly": true,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"System Wide Active Warnings": {
+			"address": "0x0043",
+			"name": "System Wide Active Warnings",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Harvest Power": {
+			"address": "0x0044",
+			"name": "PV Harvest Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Charging Power": {
+			"address": "0x0046",
+			"name": "DC Charging Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Charging Current": {
+			"address": "0x0048",
+			"name": "DC Charging Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Inverting Power": {
+			"address": "0x004A",
+			"name": "DC Inverting Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Grid Voltage": {
+			"address": "0x004C",
+			"name": "Grid Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Grid Frequency": {
+			"address": "0x004E",
+			"name": "Grid Frequency",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Hz",
+			"scale": 0.01,
+			"offset": 0
+		},
+		"Grid Input Power (APP)": {
+			"address": "0x0050",
+			"name": "Grid Input Power (APP)",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "VA",
+			"scale": 1,
+			"offset": 0
+		},
+		"Grid Input Power": {
+			"address": "0x0052",
+			"name": "Grid Input Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Grid Input Current": {
+			"address": "0x0054",
+			"name": "Grid Input Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Grid Output Power (APP)": {
+			"address": "0x0056",
+			"name": "Grid Output Power (APP)",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "VA",
+			"scale": 1,
+			"offset": 0
+		},
+		"Grid Output Power": {
+			"address": "0x0058",
+			"name": "Grid Output Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Sell Current": {
+			"address": "0x005A",
+			"name": "Sell Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"AC Generator Power": {
+			"address": "0x005C",
+			"name": "AC Generator Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Load Output Power": {
+			"address": "0x005E",
+			"name": "Load Output Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Load Power (APP)": {
+			"address": "0x0060",
+			"name": "Load Power (APP)",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "VA",
+			"scale": 1,
+			"offset": 0
+		},
+		"Load Power": {
+			"address": "0x0062",
+			"name": "Load Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Load Voltage": {
+			"address": "0x0064",
+			"name": "Load Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Load Frequency": {
+			"address": "0x0066",
+			"name": "Load Frequency",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Hz",
+			"scale": 0.01,
+			"offset": 0
+		},
+		"Load Current": {
+			"address": "0x0068",
+			"name": "Load Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"XW Grid Power": {
+			"address": "0x006A",
+			"name": "XW Grid Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"XW Grid Voltage": {
+			"address": "0x006C",
+			"name": "XW Grid Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"XW Grid Frequency": {
+			"address": "0x006E",
+			"name": "XW Grid Frequency",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Hz",
+			"scale": 0.01,
+			"offset": 0
+		},
+		"XW Generator Power": {
+			"address": "0x0070",
+			"name": "XW Generator Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"XW Generator Voltage": {
+			"address": "0x0072",
+			"name": "XW Generator Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"XW Generator Frequency": {
+			"address": "0x0074",
+			"name": "XW Generator Frequency",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Hz",
+			"scale": 0.01,
+			"offset": 0
+		},
+		"XW Load Power": {
+			"address": "0x0076",
+			"name": "XW Load Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"XW Load Voltage": {
+			"address": "0x0078",
+			"name": "XW Load Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"XW Load Frequency": {
+			"address": "0x007A",
+			"name": "XW Load Frequency",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Hz",
+			"scale": 0.01,
+			"offset": 0
+		},
+		"XW Battery Current": {
+			"address": "0x007C",
+			"name": "XW Battery Current",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"MPPT PV Power": {
+			"address": "0x008C",
+			"name": "MPPT PV Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"MPPT Battery Current": {
+			"address": "0x008E",
+			"name": "MPPT Battery Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"MPPT Battery Power": {
+			"address": "0x0090",
+			"name": "MPPT Battery Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Voltage": {
+			"address": "0x0098",
+			"name": "Battery Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Temperature": {
+			"address": "0x009A",
+			"name": "Battery Temperature",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "DegC",
+			"scale": 0.01,
+			"offset": -273
+		},
+		"Battery Current Net": {
+			"address": "0x009C",
+			"name": "Battery Current Net",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Input Energy This Hour from battery": {
+			"address": "0x00A0",
+			"name": "DC Input Energy This Hour from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Input Active Timer This Hour from battery": {
+			"address": "0x00A2",
+			"name": "DC Input Active Timer This Hour from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Input Energy Today from battery": {
+			"address": "0x00A4",
+			"name": "DC Input Energy Today from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Input Active Timer Today from battery": {
+			"address": "0x00A6",
+			"name": "DC Input Active Timer Today from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Input Energy This Week from battery": {
+			"address": "0x00A8",
+			"name": "DC Input Energy This Week from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Input Active Timer This Week from battery": {
+			"address": "0x00AA",
+			"name": "DC Input Active Timer This Week from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Input Energy This Month from battery": {
+			"address": "0x00AC",
+			"name": "DC Input Energy This Month from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Input Active Timer This Month from battery": {
+			"address": "0x00AE",
+			"name": "DC Input Active Timer This Month from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Input Energy This Year from battery": {
+			"address": "0x00B0",
+			"name": "DC Input Energy This Year from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Input Active Timer This Year from battery": {
+			"address": "0x00B2",
+			"name": "DC Input Active Timer This Year from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Input Energy Lifetime from battery": {
+			"address": "0x00B4",
+			"name": "DC Input Energy Lifetime from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Input Active Timer Lifetime from battery": {
+			"address": "0x00B6",
+			"name": "DC Input Active Timer Lifetime from battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Output Energy This Hour to battery": {
+			"address": "0x00B8",
+			"name": "DC Output Energy This Hour to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Output Active Timer This Hour to battery": {
+			"address": "0x00BA",
+			"name": "DC Output Active Timer This Hour to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Output Energy Today to battery": {
+			"address": "0x00BC",
+			"name": "DC Output Energy Today to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Output Active Timer Today to battery": {
+			"address": "0x00BE",
+			"name": "DC Output Active Timer Today to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Output Energy This Week to battery": {
+			"address": "0x00C0",
+			"name": "DC Output Energy This Week to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Output Active Timer This Week to battery": {
+			"address": "0x00C2",
+			"name": "DC Output Active Timer This Week to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Output Energy This Month to battery": {
+			"address": "0x00C4",
+			"name": "DC Output Energy This Month to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Output Active Timer This Month to battery": {
+			"address": "0x00C6",
+			"name": "DC Output Active Timer This Month to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Output Energy This Year to battery": {
+			"address": "0x00C8",
+			"name": "DC Output Energy This Year to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Output Active Timer This Year to battery": {
+			"address": "0x00CA",
+			"name": "DC Output Active Timer This Year to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"DC Output Energy Lifetime to battery": {
+			"address": "0x00CC",
+			"name": "DC Output Energy Lifetime to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"DC Output Active Timer Lifetime to battery": {
+			"address": "0x00CE",
+			"name": "DC Output Active Timer Lifetime to battery",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"AC Load Energy This Hour": {
+			"address": "0x0100",
+			"name": "AC Load Energy This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"AC Load Active Timer This Hour": {
+			"address": "0x0102",
+			"name": "AC Load Active Timer This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"AC Load Energy Today": {
+			"address": "0x0104",
+			"name": "AC Load Energy Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"AC Load Active Timer Today": {
+			"address": "0x0106",
+			"name": "AC Load Active Timer Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"AC Load Energy This Week": {
+			"address": "0x0108",
+			"name": "AC Load Energy This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"AC Load Active Timer This Week": {
+			"address": "0x010A",
+			"name": "AC Load Active Timer This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"AC Load Energy This Month": {
+			"address": "0x010C",
+			"name": "AC Load Energy This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"AC Load Active Timer This Month": {
+			"address": "0x010E",
+			"name": "AC Load Active Timer This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"AC Load Energy This Year": {
+			"address": "0x0110",
+			"name": "AC Load Energy This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"AC Load Active Timer This Year": {
+			"address": "0x0112",
+			"name": "AC Load Active Timer This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"AC Load Energy Lifetime": {
+			"address": "0x0114",
+			"name": "AC Load Energy Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"AC Load Active Timer Lifetime": {
+			"address": "0x0116",
+			"name": "AC Load Active Timer Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Input Energy This Hour": {
+			"address": "0x0118",
+			"name": "Generator Input Energy This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Generator Input Active Timer This Hour": {
+			"address": "0x011A",
+			"name": "Generator Input Active Timer This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Input Energy Today": {
+			"address": "0x011C",
+			"name": "Generator Input Energy Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Generator Input Active Timer Today": {
+			"address": "0x011E",
+			"name": "Generator Input Active Timer Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Input Energy This Week": {
+			"address": "0x0120",
+			"name": "Generator Input Energy This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Generator Input Active Timer This Week": {
+			"address": "0x0122",
+			"name": "Generator Input Active Timer This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Input Energy This Month": {
+			"address": "0x0124",
+			"name": "Generator Input Energy This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Generator Input Active Timer This Month": {
+			"address": "0x0126",
+			"name": "Generator Input Active Timer This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Input Energy This Year": {
+			"address": "0x0128",
+			"name": "Generator Input Energy This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Generator Input Active Timer This Year": {
+			"address": "0x012A",
+			"name": "Generator Input Active Timer This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Input Energy Lifetime": {
+			"address": "0x012C",
+			"name": "Generator Input Energy Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Generator Input Active Timer Lifetime": {
+			"address": "0x012E",
+			"name": "Generator Input Active Timer Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Input Energy This Hour": {
+			"address": "0x0130",
+			"name": "PV Input Energy This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"PV Input Active Timer This Hour": {
+			"address": "0x0132",
+			"name": "PV Input Active Timer This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Input Energy Today": {
+			"address": "0x0134",
+			"name": "PV Input Energy Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"PV Input Active Timer Today": {
+			"address": "0x0136",
+			"name": "PV Input Active Timer Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Input Energy This Week": {
+			"address": "0x0138",
+			"name": "PV Input Energy This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"PV Input Active Timer This Week": {
+			"address": "0x013A",
+			"name": "PV Input Active Timer This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Input Energy This Month": {
+			"address": "0x013C",
+			"name": "PV Input Energy This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"PV Input Active Timer This Month": {
+			"address": "0x013E",
+			"name": "PV Input Active Timer This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Input Energy This Year": {
+			"address": "0x0140",
+			"name": "PV Input Energy This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"PV Input Active Timer This Year": {
+			"address": "0x0142",
+			"name": "PV Input Active Timer This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Input Energy Lifetime": {
+			"address": "0x0144",
+			"name": "PV Input Energy Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"PV Input Active Timer Lifetime": {
+			"address": "0x0146",
+			"name": "PV Input Active Timer Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Current Line 1": {
+			"address": "0x0148",
+			"name": "Generator Current Line 1",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Generator Current Line 2": {
+			"address": "0x014A",
+			"name": "Generator Current Line 2",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Load Current Line 1": {
+			"address": "0x014C",
+			"name": "Load Current Line 1",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Load Current Line 2": {
+			"address": "0x014E",
+			"name": "Load Current Line 2",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Power Net": {
+			"address": "0x0158",
+			"name": "Battery Power Net",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Last Absorption Exit Time": {
+			"address": "0x015A",
+			"name": "Last Absorption Exit Time",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "",
+			"scale": 1,
+			"offset": 0
+		},
+		"Average Generator Voltage": {
+			"address": "0x015C",
+			"name": "Average Generator Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Average Generator Frequency": {
+			"address": "0x015E",
+			"name": "Average Generator Frequency",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Hz",
+			"scale": 0.01,
+			"offset": 0
+		},
+		"Total Generator Current": {
+			"address": "0x015C",
+			"name": "Total Generator Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Average PV Voltage": {
+			"address": "0x0162",
+			"name": "Average PV Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Total PV Current": {
+			"address": "0x0164",
+			"name": "Total PV Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Voltage": {
+			"address": "0x0200",
+			"name": "Battery Bank 1 Voltage",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Current": {
+			"address": "0x0202",
+			"name": "Battery Bank 1 Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Temperature": {
+			"address": "0x0204",
+			"name": "Battery Bank 1 Temperature",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "DegC",
+			"scale": 0.01,
+			"offset": -273
+		},
+		"Battery Bank 1 Charging Current": {
+			"address": "0x0206",
+			"name": "Battery Bank 1 Charging Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Power": {
+			"address": "0x0208",
+			"name": "Battery Bank 1 Charging Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Current": {
+			"address": "0x020A",
+			"name": "Battery Bank 1 Inverting Current",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Power": {
+			"address": "0x020C",
+			"name": "Battery Bank 1 Inverting Power",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Energy This Hour": {
+			"address": "0x0280",
+			"name": "Battery Bank 1 Charging Energy This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Energy Today": {
+			"address": "0x0282",
+			"name": "Battery Bank 1 Charging Energy Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Energy This Week": {
+			"address": "0x0284",
+			"name": "Battery Bank 1 Charging Energy This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Energy This Month": {
+			"address": "0x0286",
+			"name": "Battery Bank 1 Charging Energy This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Energy This Year": {
+			"address": "0x0288",
+			"name": "Battery Bank 1 Charging Energy This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Energy Lifetime": {
+			"address": "0x028A",
+			"name": "Battery Bank 1 Charging Energy Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Active This Hour": {
+			"address": "0x028C",
+			"name": "Battery Bank 1 Charging Active This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Active Today": {
+			"address": "0x028E",
+			"name": "Battery Bank 1 Charging Active Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Active This Week": {
+			"address": "0x0290",
+			"name": "Battery Bank 1 Charging Active This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Active This Month": {
+			"address": "0x0292",
+			"name": "Battery Bank 1 Charging Active This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Active This Year": {
+			"address": "0x0294",
+			"name": "Battery Bank 1 Charging Active This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Charging Active Lifetime": {
+			"address": "0x0296",
+			"name": "Battery Bank 1 Charging Active Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Energy This Hour": {
+			"address": "0x0298",
+			"name": "Battery Bank 1 Inverting Energy This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Energy Today": {
+			"address": "0x029A",
+			"name": "Battery Bank 1 Inverting Energy Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Energy This Week": {
+			"address": "0x029C",
+			"name": "Battery Bank 1 Inverting Energy This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Energy This Month": {
+			"address": "0x029E",
+			"name": "Battery Bank 1 Inverting Energy This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Energy This Year": {
+			"address": "0x02A0",
+			"name": "Battery Bank 1 Inverting Energy This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Energy Lifetime": {
+			"address": "0x02A2",
+			"name": "Battery Bank 1 Inverting Energy Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "kWh",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Active This Hour": {
+			"address": "0x02A4",
+			"name": "Battery Bank 1 Inverting Active This Hour",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Active Today": {
+			"address": "0x02A6",
+			"name": "Battery Bank 1 Inverting Active Today",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Active This Week": {
+			"address": "0x02A8",
+			"name": "Battery Bank 1 Inverting Active This Week",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Active This Month": {
+			"address": "0x02AA",
+			"name": "Battery Bank 1 Inverting Active This Month",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Active This Year": {
+			"address": "0x02AC",
+			"name": "Battery Bank 1 Inverting Active This Year",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Inverting Active Lifetime": {
+			"address": "0x02AE",
+			"name": "Battery Bank 1 Inverting Active Lifetime",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Running Since": {
+			"address": "0x03B4",
+			"name": "Generator Running Since",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Power": {
+			"address": "0x03C6",
+			"name": "Battery Bank 1 Power",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 0.001,
+			"offset": 0
+		},
+		"Battery Bank 1 SOC": {
+			"address": "0x03C8",
+			"name": "Battery Bank 1 SOC",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "%",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Capacity Remaining": {
+			"address": "0x03CA",
+			"name": "Battery Bank 1 Capacity Remaining",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Ah",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Time Until Recharge": {
+			"address": "0x03CC",
+			"name": "Battery Bank 1 Time Until Recharge",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"Battery Bank 1 Last Recharge Time": {
+			"address": "0x03CE",
+			"name": "Battery Bank 1 Last Recharge Time",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Seconds",
+			"scale": 1,
+			"offset": 0
+		},
+		"PV Total Power": {
+			"address": "0x03FA",
+			"name": "PV Total Power",
+			"type": "Int",
+			"length": 2,
+			"readOnly": true,
+			"units": "Watts",
+			"scale": 1,
+			"offset": 0
+		}
+	}
+}

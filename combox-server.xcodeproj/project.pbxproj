@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07DE20C22941971A00CA4C9D /* CocoaMQTT in Frameworks */ = {isa = PBXBuildFile; productRef = 07DE20C12941971A00CA4C9D /* CocoaMQTT */; };
+		AB423E1C2944329200CF809E /* MQTTDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB423E1B2944329200CF809E /* MQTTDevice.swift */; };
+		D013EAF42435839C00F1BE8A /* CocoaAsyncSocket in Frameworks */ = {isa = PBXBuildFile; productRef = D013EAF32435839C00F1BE8A /* CocoaAsyncSocket */; };
+		D013EAF7243585E900F1BE8A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D013EAF6243585E900F1BE8A /* Alamofire */; };
+		D013EAFD24358C0F00F1BE8A /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = D013EAFC24358C0F00F1BE8A /* ObjectMapper */; };
+		D013EB0E24363A8E00F1BE8A /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D013EB0624363A2B00F1BE8A /* SwiftSocket.framework */; };
+		D013EB0F24363A8F00F1BE8A /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D013EB0624363A2B00F1BE8A /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D013EB13243687DC00F1BE8A /* SolarSystemUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D013EB12243687DC00F1BE8A /* SolarSystemUIView.swift */; };
+		D09E65FA24009891003CC631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E65F924009891003CC631 /* AppDelegate.swift */; };
+		D09E65FC24009891003CC631 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E65FB24009891003CC631 /* SceneDelegate.swift */; };
+		D09E65FE24009891003CC631 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E65FD24009891003CC631 /* ContentView.swift */; };
+		D09E660024009892003CC631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09E65FF24009892003CC631 /* Assets.xcassets */; };
+		D09E660324009892003CC631 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09E660224009892003CC631 /* Preview Assets.xcassets */; };
+		D09E660624009892003CC631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09E660424009892003CC631 /* LaunchScreen.storyboard */; };
+		D09E662A240099EC003CC631 /* DeviceFiles in Resources */ = {isa = PBXBuildFile; fileRef = D09E6629240099EC003CC631 /* DeviceFiles */; };
+		D09E663324009A2C003CC631 /* ModBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E662C24009A2C003CC631 /* ModBus.swift */; };
+		D09E663524009A2C003CC631 /* Combox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E662E24009A2C003CC631 /* Combox.swift */; };
+		D09E663624009A2C003CC631 /* ModbusRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E662F24009A2C003CC631 /* ModbusRegister.swift */; };
+		D09E663724009A2C003CC631 /* Outback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E663024009A2C003CC631 /* Outback.swift */; };
+		D09E663824009A2C003CC631 /* BaseDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09E663124009A2C003CC631 /* BaseDevice.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D013EB0524363A2B00F1BE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D013EAFE24363A2B00F1BE8A /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 377DAA691DCDE40200009697;
+			remoteInfo = "SwiftSocket iOS";
+		};
+		D013EB0724363A2B00F1BE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D013EAFE24363A2B00F1BE8A /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 377DAA761DCDE45D00009697;
+			remoteInfo = "SwiftSocket macOS";
+		};
+		D013EB0924363A2B00F1BE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D013EAFE24363A2B00F1BE8A /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37454ECA1E06158200800AE5;
+			remoteInfo = "SwiftSocket tvOS";
+		};
+		D013EB0B24363A2B00F1BE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D013EAFE24363A2B00F1BE8A /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 375C482D1DDC4C56008C701D;
+			remoteInfo = "iOS Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D013EB1024363A8F00F1BE8A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D013EB0F24363A8F00F1BE8A /* SwiftSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AB423E1B2944329200CF809E /* MQTTDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTDevice.swift; sourceTree = "<group>"; };
+		D013EAFE24363A2B00F1BE8A /* SwiftSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSocket.xcodeproj; path = ../SwiftSocket/SwiftSocket.xcodeproj; sourceTree = "<group>"; };
+		D013EB12243687DC00F1BE8A /* SolarSystemUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemUIView.swift; sourceTree = "<group>"; };
+		D01DA3ED245B342E00DEAC08 /* combox-server.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "combox-server.entitlements"; sourceTree = "<group>"; };
+		D09E65F624009891003CC631 /* combox-server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "combox-server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D09E65F924009891003CC631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D09E65FB24009891003CC631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D09E65FD24009891003CC631 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D09E65FF24009892003CC631 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D09E660224009892003CC631 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D09E660524009892003CC631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D09E660724009892003CC631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D09E6629240099EC003CC631 /* DeviceFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DeviceFiles; sourceTree = "<group>"; };
+		D09E662C24009A2C003CC631 /* ModBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModBus.swift; sourceTree = "<group>"; };
+		D09E662E24009A2C003CC631 /* Combox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combox.swift; sourceTree = "<group>"; };
+		D09E662F24009A2C003CC631 /* ModbusRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModbusRegister.swift; sourceTree = "<group>"; };
+		D09E663024009A2C003CC631 /* Outback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outback.swift; sourceTree = "<group>"; };
+		D09E663124009A2C003CC631 /* BaseDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDevice.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D09E65F324009891003CC631 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D013EAFD24358C0F00F1BE8A /* ObjectMapper in Frameworks */,
+				D013EAF42435839C00F1BE8A /* CocoaAsyncSocket in Frameworks */,
+				07DE20C22941971A00CA4C9D /* CocoaMQTT in Frameworks */,
+				D013EAF7243585E900F1BE8A /* Alamofire in Frameworks */,
+				D013EB0E24363A8E00F1BE8A /* SwiftSocket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D013EAFF24363A2B00F1BE8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D013EB0624363A2B00F1BE8A /* SwiftSocket.framework */,
+				D013EB0824363A2B00F1BE8A /* SwiftSocket.framework */,
+				D013EB0A24363A2B00F1BE8A /* SwiftSocket.framework */,
+				D013EB0C24363A2B00F1BE8A /* iOS Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D013EB0D24363A8E00F1BE8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D013EB11243687B200F1BE8A /* UI Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				D013EB12243687DC00F1BE8A /* SolarSystemUIView.swift */,
+			);
+			path = "UI Widgets";
+			sourceTree = "<group>";
+		};
+		D09E65ED24009891003CC631 = {
+			isa = PBXGroup;
+			children = (
+				D013EAFE24363A2B00F1BE8A /* SwiftSocket.xcodeproj */,
+				D09E65F824009891003CC631 /* combox-server */,
+				D09E65F724009891003CC631 /* Products */,
+				D013EB0D24363A8E00F1BE8A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D09E65F724009891003CC631 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D09E65F624009891003CC631 /* combox-server.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D09E65F824009891003CC631 /* combox-server */ = {
+			isa = PBXGroup;
+			children = (
+				D01DA3ED245B342E00DEAC08 /* combox-server.entitlements */,
+				D013EB11243687B200F1BE8A /* UI Widgets */,
+				D09E663124009A2C003CC631 /* BaseDevice.swift */,
+				AB423E1B2944329200CF809E /* MQTTDevice.swift */,
+				D09E662E24009A2C003CC631 /* Combox.swift */,
+				D09E662C24009A2C003CC631 /* ModBus.swift */,
+				D09E662F24009A2C003CC631 /* ModbusRegister.swift */,
+				D09E663024009A2C003CC631 /* Outback.swift */,
+				D09E6629240099EC003CC631 /* DeviceFiles */,
+				D09E65F924009891003CC631 /* AppDelegate.swift */,
+				D09E65FB24009891003CC631 /* SceneDelegate.swift */,
+				D09E65FD24009891003CC631 /* ContentView.swift */,
+				D09E65FF24009892003CC631 /* Assets.xcassets */,
+				D09E660424009892003CC631 /* LaunchScreen.storyboard */,
+				D09E660724009892003CC631 /* Info.plist */,
+				D09E660124009892003CC631 /* Preview Content */,
+			);
+			path = "combox-server";
+			sourceTree = "<group>";
+		};
+		D09E660124009892003CC631 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D09E660224009892003CC631 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D09E65F524009891003CC631 /* combox-server */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D09E662024009892003CC631 /* Build configuration list for PBXNativeTarget "combox-server" */;
+			buildPhases = (
+				D09E65F224009891003CC631 /* Sources */,
+				D09E65F324009891003CC631 /* Frameworks */,
+				D09E65F424009891003CC631 /* Resources */,
+				D013EB1024363A8F00F1BE8A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "combox-server";
+			packageProductDependencies = (
+				D013EAF32435839C00F1BE8A /* CocoaAsyncSocket */,
+				D013EAF6243585E900F1BE8A /* Alamofire */,
+				D013EAFC24358C0F00F1BE8A /* ObjectMapper */,
+				07DE20C12941971A00CA4C9D /* CocoaMQTT */,
+			);
+			productName = "combox-server";
+			productReference = D09E65F624009891003CC631 /* combox-server.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D09E65EE24009891003CC631 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = "Eric Vickery";
+				TargetAttributes = {
+					D09E65F524009891003CC631 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = D09E65F124009891003CC631 /* Build configuration list for PBXProject "combox-server" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D09E65ED24009891003CC631;
+			packageReferences = (
+				D013EAF22435839C00F1BE8A /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */,
+				D013EAF5243585E900F1BE8A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D013EAFB24358C0F00F1BE8A /* XCRemoteSwiftPackageReference "ObjectMapper" */,
+				07DE20C02941971A00CA4C9D /* XCRemoteSwiftPackageReference "CocoaMQTT" */,
+			);
+			productRefGroup = D09E65F724009891003CC631 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D013EAFF24363A2B00F1BE8A /* Products */;
+					ProjectRef = D013EAFE24363A2B00F1BE8A /* SwiftSocket.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D09E65F524009891003CC631 /* combox-server */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D013EB0624363A2B00F1BE8A /* SwiftSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftSocket.framework;
+			remoteRef = D013EB0524363A2B00F1BE8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D013EB0824363A2B00F1BE8A /* SwiftSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftSocket.framework;
+			remoteRef = D013EB0724363A2B00F1BE8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D013EB0A24363A2B00F1BE8A /* SwiftSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftSocket.framework;
+			remoteRef = D013EB0924363A2B00F1BE8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D013EB0C24363A2B00F1BE8A /* iOS Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "iOS Example.app";
+			remoteRef = D013EB0B24363A2B00F1BE8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D09E65F424009891003CC631 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09E660624009892003CC631 /* LaunchScreen.storyboard in Resources */,
+				D09E660324009892003CC631 /* Preview Assets.xcassets in Resources */,
+				D09E662A240099EC003CC631 /* DeviceFiles in Resources */,
+				D09E660024009892003CC631 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D09E65F224009891003CC631 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D09E65FA24009891003CC631 /* AppDelegate.swift in Sources */,
+				D09E65FC24009891003CC631 /* SceneDelegate.swift in Sources */,
+				D09E663324009A2C003CC631 /* ModBus.swift in Sources */,
+				D09E663524009A2C003CC631 /* Combox.swift in Sources */,
+				D09E663824009A2C003CC631 /* BaseDevice.swift in Sources */,
+				D09E663724009A2C003CC631 /* Outback.swift in Sources */,
+				D09E663624009A2C003CC631 /* ModbusRegister.swift in Sources */,
+				AB423E1C2944329200CF809E /* MQTTDevice.swift in Sources */,
+				D09E65FE24009891003CC631 /* ContentView.swift in Sources */,
+				D013EB13243687DC00F1BE8A /* SolarSystemUIView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D09E660424009892003CC631 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D09E660524009892003CC631 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D09E661E24009892003CC631 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D09E661F24009892003CC631 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D09E662124009892003CC631 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "combox-server/combox-server.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = CWNCTDGDL5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "combox-server/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Combox Server";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.serenitymountainranch.combox-server";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "2,6";
+			};
+			name = Debug;
+		};
+		D09E662224009892003CC631 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "combox-server/combox-server.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = CWNCTDGDL5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "combox-server/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Combox Server";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.serenitymountainranch.combox-server";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "2,6";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D09E65F124009891003CC631 /* Build configuration list for PBXProject "combox-server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D09E661E24009892003CC631 /* Debug */,
+				D09E661F24009892003CC631 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D09E662024009892003CC631 /* Build configuration list for PBXNativeTarget "combox-server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D09E662124009892003CC631 /* Debug */,
+				D09E662224009892003CC631 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		07DE20C02941971A00CA4C9D /* XCRemoteSwiftPackageReference "CocoaMQTT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/emqx/CocoaMQTT.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.8;
+			};
+		};
+		D013EAF22435839C00F1BE8A /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/robbiehanson/CocoaAsyncSocket";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.6.4;
+			};
+		};
+		D013EAF5243585E900F1BE8A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.5;
+			};
+		};
+		D013EAFB24358C0F00F1BE8A /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ksloginov/ObjectMapper.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07DE20C12941971A00CA4C9D /* CocoaMQTT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07DE20C02941971A00CA4C9D /* XCRemoteSwiftPackageReference "CocoaMQTT" */;
+			productName = CocoaMQTT;
+		};
+		D013EAF32435839C00F1BE8A /* CocoaAsyncSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D013EAF22435839C00F1BE8A /* XCRemoteSwiftPackageReference "CocoaAsyncSocket" */;
+			productName = CocoaAsyncSocket;
+		};
+		D013EAF6243585E900F1BE8A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D013EAF5243585E900F1BE8A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D013EAFC24358C0F00F1BE8A /* ObjectMapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D013EAFB24358C0F00F1BE8A /* XCRemoteSwiftPackageReference "ObjectMapper" */;
+			productName = ObjectMapper;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D09E65EE24009891003CC631 /* Project object */;
+}

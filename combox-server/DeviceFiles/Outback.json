@@ -1,0 +1,138 @@
+{
+	"deviceId": "0xFF",
+	"registers": {
+		"Sunspec ID": {
+			"address": "0x9C40",
+			"name": "Sunspec ID",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true
+		},
+		"Errors": {
+			"address": "0x0191",
+			"name": "Errors",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true
+		},
+		"DHCP Enabled": {
+			"address": "0x0015",
+			"name": "DHCP Enabled",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true
+		},
+		"TCPIP Address": {
+			"address": "0x0016",
+			"name": "TCPIP Address",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true
+		},
+		"TCPIP Gateway": {
+			"address": "0x0018",
+			"name": "TCPIP Gateway",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true
+		},
+		"TCPIP Netmask": {
+			"address": "0x001A",
+			"name": "TCPIP Netmask",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true
+		},
+		"TCPIP DNS1": {
+			"address": "0x001C",
+			"name": "TCPIP DNS1",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true
+		},
+		"TCPIP DNS2": {
+			"address": "0x001E",
+			"name": "TCPIP DNS2",
+			"type": "UInt",
+			"length": 2,
+			"readOnly": true
+		},
+		"Firmware Version": {
+			"address": "0x0002",
+			"name": "Firmware Version",
+			"type": "UInt",
+			"length": 3,
+			"readOnly": true
+		},
+		"Battery Voltage": {
+			"address": "0x0196",
+			"name": "Battery Voltage",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 0.1,
+			"offset": 0
+		},
+		"Battery Temperature": {
+			"address": "0x018E",
+			"name": "Battery Temperature",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "Deg C",
+			"scale": 1,
+			"offset": 0
+		},
+		"AC Voltage": {
+			"address": "0x000B",
+			"name": "AC Voltage",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Solar Power": {
+			"address": "0x000D",
+			"name": "Solar Power",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "Volts",
+			"scale": 1,
+			"offset": 0
+		},
+		"Load Amps": {
+			"address": "0x0007",
+			"name": "Load Amps",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 1,
+			"offset": 0
+		},
+		"Charge Amps": {
+			"address": "0x0008",
+			"name": "Charge Amps",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 1,
+			"offset": 0
+		},
+		"Generator Amps": {
+			"address": "0x0009",
+			"name": "Generator Amps",
+			"type": "UInt",
+			"length": 1,
+			"readOnly": true,
+			"units": "Amps",
+			"scale": 1,
+			"offset": 0
+		},
+	}
+}
