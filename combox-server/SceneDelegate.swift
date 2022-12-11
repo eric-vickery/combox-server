@@ -25,26 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             let clientID = "SolarMonitor"
             mqtt = CocoaMQTT(clientID: clientID, host: "192.168.211.1", port: 1883)
-            if let mqtt = mqtt
-            {
-                mqtt.allowUntrustCACertificate = true
-                //            mqtt.willMessage = CocoaMQTTWill(topic: "/will", message: "dieout")
-//                mqtt.logLevel = .debug
-                mqtt.keepAlive = 60
-//                mqtt.delegate = self
-                mqtt.didReceiveMessage = { mqtt, message, id in
-                    print("Message received in topic \(message.topic) with payload \(message.string!)")
-                }
-                mqtt.didChangeState = { mqtt, connectionState in
-                    if connectionState == .connected
-                    {
-//                        mqtt.publish("dashbox/01001232/t1/val", withString: "", qos: .qos1, retained: true)
-                        mqtt.subscribe("dashbox/01001232/t1/#", qos: CocoaMQTTQoS.qos1)
-                        print("Connected")
-                    }
-                }
-                _ = mqtt.connect()
-            }
             // Create the SwiftUI view that provides the window contents.
             let contentView = ContentView(comboxDevice: comboxDevice)
 
