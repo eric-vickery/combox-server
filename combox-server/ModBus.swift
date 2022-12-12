@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 import SwiftSocket
 
 class ModBus
@@ -16,6 +17,7 @@ class ModBus
 	var client: TCPClient!
     var address: String = ""
     var port: Int32 = 0
+    var logger = Logger()
 	
 	func connect(address: String, port: Int32) -> Bool
 	{
@@ -27,6 +29,7 @@ class ModBus
 		switch client.connect(timeout: 10)
 		{
 		case .success:
+            logger.info("COMBOX - Connected")
 			return true
 		case .failure(let error):
 			print(error)
@@ -39,6 +42,7 @@ class ModBus
         switch client.connect(timeout: 10)
         {
         case .success:
+            logger.warning("COMBOX - Reconnected")
             return true
         case .failure(let error):
             print(error)
@@ -75,7 +79,8 @@ class ModBus
 				receivedData.append(contentsOf: data)
 
 			case .failure(let error):
-                print(error)
+                logger.warning("COMBOX - Received the following error in the call readRegisters - \(error)")
+//                print(error)
                 // Try to reconnect if we get an error because more than likely it is a dosconnected error
                 _ = reconnect()
 			}
