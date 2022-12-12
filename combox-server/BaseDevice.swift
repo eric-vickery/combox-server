@@ -20,6 +20,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     static let stateOfChargeThreshold: Float = 90.0
     static let batteryVoltageThreshold: Float = 57.2
     static let evChargerPowerTopic = "dashbox/01001232/c4/watt"
+    static let lastPublishedTime = "combox/lastPublishedTime"
     static let availableSolarPowerTopic = "combox/availableSolar"
     static let currentSolarPowerTopic = "combox/currentSolar"
     static let currentLoadTopic = "combox/currentLoad"
@@ -127,7 +128,6 @@ class BaseDevice: NSObject, Mappable, ObservableObject
             mqtt.allowUntrustCACertificate = true
             mqtt.keepAlive = 60
             mqtt.didReceiveMessage = { mqtt, message, id in
-//                print("Message received in topic \(message.topic) with payload \(message.string!)")
                 if message.topic == BaseDevice.evChargerPowerTopic
                 {
                     if let floatValue = Float(message.string!)
@@ -140,7 +140,6 @@ class BaseDevice: NSObject, Mappable, ObservableObject
                 if connectionState == .connected
                 {
                     mqtt.subscribe(BaseDevice.evChargerPowerTopic, qos: CocoaMQTTQoS.qos1)
-//                    print("Connected")
                 }
             }
             _ = mqtt.connect()
@@ -179,6 +178,10 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     
     func publishToMQTT() -> Void
     {
+        let today = Date.now
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy hh:mm:ssa"
+        self.mqtt!.publish(BaseDevice.lastPublishedTime, withString: formatter.string(from: today), qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.availableSolarPowerTopic, withString: self.availableSolarPower, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.currentSolarPowerTopic, withString: self.currentSolarPower, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.currentLoadTopic, withString: self.loadPower, qos: .qos1, retained: true)
