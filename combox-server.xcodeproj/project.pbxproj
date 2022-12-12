@@ -463,6 +463,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "combox-server/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Combox Server";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,6 +490,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "combox-server/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Combox Server";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
