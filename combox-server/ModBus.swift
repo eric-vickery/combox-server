@@ -14,9 +14,14 @@ class ModBus
 	var headerData:[UInt8] = [0x01, 0x15, 0x00, 0x00, 0x00, 0x06]
 	
 	var client: TCPClient!
+    var address: String = ""
+    var port: Int32 = 0
 	
 	func connect(address: String, port: Int32) -> Bool
 	{
+        self.address = address
+        self.port = port
+        
 		client = TCPClient(address: address, port: port)
 
 		switch client.connect(timeout: 10)
@@ -28,6 +33,18 @@ class ModBus
 			return false
 		}
 	}
+    
+    func reconnect() -> Bool
+    {
+        switch client.connect(timeout: 10)
+        {
+        case .success:
+            return true
+        case .failure(let error):
+            print(error)
+            return false
+        }
+    }
 	
 	func readRegisters(slaveID: UInt8, startingRegister: UInt16, numRegistersToRead: Int) -> [UInt8]
 	{
@@ -58,7 +75,9 @@ class ModBus
 				receivedData.append(contentsOf: data)
 
 			case .failure(let error):
-				print(error)
+                print(error)
+                // Try to reconnect if we get an error because more than likely it is a dosconnected error
+                _ = reconnect()
 			}
 		}
 		return receivedData
