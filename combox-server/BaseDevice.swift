@@ -47,7 +47,6 @@ class BaseDevice: NSObject, Mappable, ObservableObject
 
     var mqtt: CocoaMQTT?
 
-	var deviceId: UInt8 = 0
 	var registers: [String : ModbusRegister]?
     var connected = false
     var testMode = false
@@ -58,14 +57,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
 
 	func mapping(map: Map)
 	{
-		var deviceIdString = ""
-
-		deviceIdString	<- map["deviceId"]
 		registers		<- map["registers"]
-
-		let index = deviceIdString.index(deviceIdString.startIndex, offsetBy: 2)
-		let subDeviceId = deviceIdString[index...]
-		deviceId = UInt8(subDeviceId, radix: 16)!
 	}
 	
     class func loadFromFile(deviceName: String, testMode: Bool = false) -> BaseDevice?
@@ -309,7 +301,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
 			{
 				if register.type == "String"
 				{
-					return modbus.getString(slaveID: self.deviceId, startingRegister: register.address + offset, numRegistersToRead: register.length / 2)
+					return modbus.getString(slaveID: register.deviceId, startingRegister: register.address + offset, numRegistersToRead: register.length / 2)
 				}
 				else
 				{
@@ -398,7 +390,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
 			guard let registers = self.registers else {return nil}
 			if let register = registers[registerName]
 			{
-				return modbus.readRegisters(slaveID: self.deviceId, startingRegister: register.address + offset, numRegistersToRead: register.length)
+				return modbus.readRegisters(slaveID: register.deviceId, startingRegister: register.address + offset, numRegistersToRead: register.length)
 			}
 		}
 		return nil

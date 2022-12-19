@@ -18,7 +18,8 @@ class ModbusRegister: Mappable
 	var units = ""
 	var scale: Float = 1.0
 	var offset: Float = 0.0
-	
+    var deviceId: UInt8 = 0
+
 	required init?(map: Map)
 	{
 	}
@@ -26,6 +27,7 @@ class ModbusRegister: Mappable
 	func mapping(map: Map)
 	{
 		var addressString = ""
+        var deviceIdString = ""
 
 		addressString	<- map["address"]
 		name			<- map["name"]
@@ -35,9 +37,14 @@ class ModbusRegister: Mappable
 		units			<- map["units"]
 		scale			<- map["scale"]
 		offset			<- map["offset"]
+        deviceIdString  <- map["deviceId"]
 
 		let index = addressString.index(addressString.startIndex, offsetBy: 2)
 		let subAddress = addressString[index...]
 		address = UInt16(subAddress, radix: 16)!
+        
+        let index = deviceIdString.index(deviceIdString.startIndex, offsetBy: 2)
+        let subDeviceId = deviceIdString[index...]
+        deviceId = UInt8(subDeviceId, radix: 16)!
 	}
 }
