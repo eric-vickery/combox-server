@@ -20,7 +20,16 @@ class Combox: BaseDevice, GCDAsyncUdpSocketDelegate
 	static let PV_TO_BATT = 0x0040
 	static let PV_TO_GRID = 0x0080
 	static let BATT_TO_LOAD = 0x0100
-	
+    
+    // Charger Status
+    static let CHARGER_NOT_CHARGING = 768
+    static let CHARGER_BULK = 769
+    static let CHARGER_ABSORB = 770
+    static let CHARGER_OVERCHARGE = 771
+    static let CHARGER_EQUALIZE = 772
+    static let CHARGER_FLOAT = 773
+    static let CHARGER_NO_FLOAT = 774
+
 	var sock: GCDAsyncUdpSocket?
 	var addressCompletionHandler: ((String?) -> Void)?
 	
@@ -196,4 +205,36 @@ class Combox: BaseDevice, GCDAsyncUdpSocketDelegate
 	{
 		return getInt("Last Absorption Exit Time")
 	}
+    
+    func getChargerStatus() -> UInt16
+    {
+        return getUInt16("Charger Status")
+    }
+        
+    func getChargerStatusString() -> String
+    {
+        var statusString = ""
+        
+        switch getChargerStatus()
+        {
+        case Combox.CHARGER_NOT_CHARGING:
+            statusString = "Not Charging"
+            
+        case Combox.CHARGER_BULK:
+            statusString = "Bulk"
+            
+        case Combox.CHARGER_ABSORB:
+            statusString = "Absorb"
+            
+        case Combox.CHARGER_OVERCHARGE:
+            statusString = "Overcharge"
+            
+        case Combox.CHARGER_FLOAT:
+            statusString = "Float"
+            
+        default:
+            statusString = "Unknown"
+        }
+        return statusString
+    }
 }

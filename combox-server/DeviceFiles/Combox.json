@@ -1703,6 +1703,16 @@
             "scale": 1,
             "offset": 0,
             "deviceId": "0xC9"
+        },
+        "Charger Status": {
+            "address": "0x0049",
+            "name": "Charger Status",
+            "type": "UInt",
+            "length": 1,
+            "readOnly": true,
+            "scale": 1,
+            "offset": 0,
+            "deviceId": "0x1E"
         }
     }
 }

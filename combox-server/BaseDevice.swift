@@ -292,7 +292,17 @@ class BaseDevice: NSObject, Mappable, ObservableObject
 		return 0.0
 	}
 	
-	func getString(_ registerName: String, offset: UInt16 = 0) -> String?
+    func getChargerStatus() -> UInt16
+    {
+        return 0
+    }
+        
+    func getChargerStatusString() -> String
+    {
+        return "Unknown"
+    }
+        
+    func getString(_ registerName: String, offset: UInt16 = 0) -> String?
 	{
 		if connected, let modbus = self.modbus
 		{
