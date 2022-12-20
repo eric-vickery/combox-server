@@ -30,6 +30,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     static let batteryPowerTopic = "combox/batteryPower"
     static let batteryTemperatureFTopic = "combox/batteryTemperature/Fahrenheit"
     static let batteryTemperatureCTopic = "combox/batteryTemperature/Celcius"
+    static let chargerStateTopic = "combox/charger/state"
 
     var evChargerPower: Float = 0.0
     
@@ -42,6 +43,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     @Published var batteryPower = ""
     @Published var batteryTemperatureF = ""
     @Published var batteryTemperatureC = ""
+    @Published var chargerState = ""
 
 	var modbus: ModBus?
 
@@ -163,6 +165,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
                     self.batteryPower = String(format: "%.0f", self.getCurrentBatteryPower() ?? 0.0)
                     self.batteryTemperatureF = String(format: "%.02f", self.convertToFahrenheit(temperatureInCelsius: self.getCurrentBatteryTemperature() ?? 0.0))
                     self.batteryTemperatureC = String(format: "%.0f", self.getCurrentBatteryTemperature() ?? 0.0)
+                    self.chargerState = self.getChargerStatusString()
                 }
             }
         }
@@ -183,14 +186,21 @@ class BaseDevice: NSObject, Mappable, ObservableObject
         self.mqtt!.publish(BaseDevice.batteryPowerTopic, withString: self.batteryPower, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.batteryTemperatureFTopic, withString: self.batteryTemperatureF, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.batteryTemperatureCTopic, withString: self.batteryTemperatureC, qos: .qos1, retained: true)
+        self.mqtt!.publish(BaseDevice.chargerStateTopic, withString: self.chargerState, qos: .qos1, retained: true)
     }
     
     func getAvailableSolarPower() -> Float
     {
         var availableSolarPowerFloat: Float = 0.0
-        if ((self.getCurrentBatteryStateOfCharge() ?? 0.0) > BaseDevice.stateOfChargeThreshold &&
-            (self.getCurrentBatteryVoltage() ?? 0.0) > BaseDevice.batteryVoltageThreshold &&
+        
+        if ((((self.getChargerStatus() ?? Combox.CHARGER_NOT_CHARGING) == Combox.CHARGER_ABSORB) ||
+            ((self.getChargerStatus() ?? Combox.CHARGER_NOT_CHARGING) == Combox.CHARGER_FLOAT) ||
+            ((self.getChargerStatus() ?? Combox.CHARGER_NOT_CHARGING) == Combox.CHARGER_EQUALIZE)) &&
             (self.getCurrentBatteryPower() ?? 0.0) > 0)
+
+//        if ((self.getCurrentBatteryStateOfCharge() ?? 0.0) > BaseDevice.stateOfChargeThreshold &&
+//            (self.getCurrentBatteryVoltage() ?? 0.0) > BaseDevice.batteryVoltageThreshold &&
+//            (self.getCurrentBatteryPower() ?? 0.0) > 0)
         {
             availableSolarPowerFloat = BaseDevice.maxSolarPowerAvailable - ((self.getCurrentTotalPowerFromSolar() ?? 0.0) - self.evChargerPower)
 
@@ -292,7 +302,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
 		return 0.0
 	}
 	
-    func getChargerStatus() -> UInt16
+    func getChargerStatus() -> UInt16?
     {
         return 0
     }

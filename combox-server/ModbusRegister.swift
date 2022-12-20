@@ -39,11 +39,11 @@ class ModbusRegister: Mappable
 		offset			<- map["offset"]
         deviceIdString  <- map["deviceId"]
 
-		let index = addressString.index(addressString.startIndex, offsetBy: 2)
+		var index = addressString.index(addressString.startIndex, offsetBy: 2)
 		let subAddress = addressString[index...]
 		address = UInt16(subAddress, radix: 16)!
         
-        let index = deviceIdString.index(deviceIdString.startIndex, offsetBy: 2)
+        index = deviceIdString.index(deviceIdString.startIndex, offsetBy: 2)
         let subDeviceId = deviceIdString[index...]
         deviceId = UInt8(subDeviceId, radix: 16)!
 	}

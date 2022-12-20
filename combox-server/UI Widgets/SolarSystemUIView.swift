@@ -80,19 +80,14 @@ struct SolarSystemUIView: View {
                     .font(.headline)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             }
-        }
-    }
-}
-
-struct RowLabel : View {
-    var label: String
-    var body: some View {
-        ZStack(alignment: .trailing) {
-            Text("Battery Temperature")
-                .opacity(0)
-                .accessibility(hidden: true)
-            Text(label)
-//                .multilineTextAlignment(.trailing)
+            HStack(spacing: 20) {
+                Text("Charger State")
+                    .font(.headline)
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                Text(device.chargerState)
+                    .font(.headline)
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
         }
     }
 }
