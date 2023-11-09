@@ -173,6 +173,11 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     
     func publishToMQTT() -> Void
     {
+        if self.mqtt!.connState != .connected
+        {
+            initMQTT()
+        }
+        
         let today = Date.now
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy hh:mm:ssa"
