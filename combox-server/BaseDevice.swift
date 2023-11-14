@@ -31,7 +31,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     static let maxNumBackoffs = 3
     static let minHouseBatteryStateOfChargeForEVCharging = 97.5
 //    static let evChargerPowerTopic = "dashbox/01001232/c4/watt"
-    static let lastPublishedTime = "combox/lastPublishedTime"
+    static let lastPublishedTimeTopic = "combox/lastPublishedTime"
     
     // Combox topics
     static let availableSolarPowerTopic = "combox/availableSolar"
@@ -44,6 +44,11 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     static let batteryTemperatureFTopic = "combox/batteryTemperature/Fahrenheit"
     static let batteryTemperatureCTopic = "combox/batteryTemperature/Celcius"
     static let chargerStateTopic = "combox/charger/state"
+    static let inHouseBatteryDischargingDelayTopic = "combox/operation/inHouseBatteryDischargingDelay"
+    static let inDischargeBackoffTopic = "combox/operation/inDischargeBackoff"
+    static let numBackoffsTopic = "combox/operation/numBackoffs"
+    static let houseBatteryHitFullChargeTopic = "combox/operation/houseBatteryHitFullCharge"
+    static let reasonForLowOrNoSolarAvailableTopic = "combox/operation/reasonForLowOrNoSolarAvailable"
     
     // Dashbox topics
     static let mainTopic = "dashbox/vickeryranch/main"
@@ -86,6 +91,8 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     @Published var inDischargeBackoff = false
     @Published var numBackoffs = 0
     @Published var houseBatteryHitFullCharge = false
+    @Published var reasonForLowOrNoSolarAvailable = ""
+    @Published var lastPublishedTime = ""
     
     // Combox values
     @Published var availableSolarPower = ""
@@ -210,21 +217,6 @@ class BaseDevice: NSObject, Mappable, ObservableObject
         {
             mqtt.allowUntrustCACertificate = true
             mqtt.keepAlive = 60
-//            mqtt.didReceiveMessage = { mqtt, message, id in
-//                if message.topic == BaseDevice.evChargerPowerTopic
-//                {
-//                    if let floatValue = Float(message.string!)
-//                    {
-//                        self.evChargerPower = floatValue
-//                    }
-//                }
-//            }
-//            mqtt.didChangeState = { mqtt, connectionState in
-//                if connectionState == .connected
-//                {
-//                    mqtt.subscribe(BaseDevice.evChargerPowerTopic, qos: CocoaMQTTQoS.qos1)
-//                }
-//            }
             _ = mqtt.connect()
         }
         logger.log("MQTT Initialized")
@@ -244,6 +236,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
                 self.numBackoffs = 0
                 self.houseBatteryHitFullCharge = false
                 self.logger.log("Cleaned up")
+                self.reasonForLowOrNoSolarAvailable = "Overnight reset"
             }
             
             initMQTT()
@@ -269,6 +262,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
                     self.batteryTemperatureF = String(format: "%.02f", self.convertToFahrenheit(temperatureInCelsius: self.getCurrentBatteryTemperature() ?? 0.0))
                     self.batteryTemperatureC = String(format: "%.0f", self.getCurrentBatteryTemperature() ?? 0.0)
                     self.chargerState = self.getChargerStatusString()
+                    
                     // See if we have gotten to 100% charged
                     if self.getCurrentBatteryStateOfCharge() == 100.0
                     {
@@ -350,8 +344,9 @@ class BaseDevice: NSObject, Mappable, ObservableObject
         let today = Date.now
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy hh:mm:ssa"
+        self.lastPublishedTime = formatter.string(from: today)
         // Combox topics
-        self.mqtt!.publish(BaseDevice.lastPublishedTime, withString: formatter.string(from: today), qos: .qos1, retained: true)
+        self.mqtt!.publish(BaseDevice.lastPublishedTimeTopic, withString: self.lastPublishedTime, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.availableSolarPowerTopic, withString: self.availableSolarPower, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.currentSolarPowerTopic, withString: self.currentSolarPower, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.currentLoadTopic, withString: self.loadPower, qos: .qos1, retained: true)
@@ -362,6 +357,11 @@ class BaseDevice: NSObject, Mappable, ObservableObject
         self.mqtt!.publish(BaseDevice.batteryTemperatureFTopic, withString: self.batteryTemperatureF, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.batteryTemperatureCTopic, withString: self.batteryTemperatureC, qos: .qos1, retained: true)
         self.mqtt!.publish(BaseDevice.chargerStateTopic, withString: self.chargerState, qos: .qos1, retained: true)
+        self.mqtt!.publish(BaseDevice.inHouseBatteryDischargingDelayTopic, withString: self.inHouseBatteryDischargingDelay ? "true" : "false", qos: .qos1, retained: true)
+        self.mqtt!.publish(BaseDevice.inDischargeBackoffTopic, withString: self.inDischargeBackoff ? "true" : "false", qos: .qos1, retained: true)
+        self.mqtt!.publish(BaseDevice.numBackoffsTopic, withString: String(format: "%0d", self.numBackoffs), qos: .qos1, retained: true)
+        self.mqtt!.publish(BaseDevice.houseBatteryHitFullChargeTopic, withString: self.houseBatteryHitFullCharge ? "true" : "false", qos: .qos1, retained: true)
+        self.mqtt!.publish(BaseDevice.reasonForLowOrNoSolarAvailableTopic, withString: self.chargerState, qos: .qos1, retained: true)
 
         // Dashbox topics
         self.mqtt!.publish(BaseDevice.mainTopic, withString: self.main, qos: .qos1, retained: true)
@@ -457,6 +457,7 @@ class BaseDevice: NSObject, Mappable, ObservableObject
 
     func setHouseBatteryDischargeDelay() -> Void
     {
+        self.reasonForLowOrNoSolarAvailable = "House battery is discharging"
         self.logger.log("In discharge delay")
         self.inHouseBatteryDischargingDelay = true
         let _ = Timer.scheduledTimer(withTimeInterval: BaseDevice.dischargeDelayIntervalSeconds, repeats: true) { timer in
@@ -473,12 +474,17 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     // This function is used to set a backoff timer and possibly stay in backoff if the number of times in backoff has been exceeded or the battery is still discharging
     func setDischargeBackoff() -> Void
     {
+        self.reasonForLowOrNoSolarAvailable = "House battery is still discharging"
         self.logger.log("In discharge backoff")
         self.inDischargeBackoff = true
         if self.numBackoffs < BaseDevice.maxNumBackoffs
         {
             let _ = Timer.scheduledTimer(withTimeInterval: BaseDevice.dischargeBackoffIntervalSeconds, repeats: true) { timer in
                 self.numBackoffs += 1
+                if self.numBackoffs >= BaseDevice.maxNumBackoffs
+                {
+                    return
+                }
                 // If we are still negative then stay in backoff for another timer interval or stay in backoff if we have exceeded the number of backoffs
                 if ((self.getCurrentBatteryPower() ?? 0.0) < 0)
                 {
