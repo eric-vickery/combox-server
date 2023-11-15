@@ -25,12 +25,12 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     static let maxPowerAvailableToEVCharger: Float = 7200.0
     static let stateOfChargeThreshold: Float = 90.0
     static let batteryVoltageHigherThreshold: Float = 57.2
-    static let batteryVoltageLowerThreshold: Float = 52.5
+    static let batteryVoltageLowerThreshold: Float = 52.0
+    static let batteryDischargeLimit: Float = -175.0
     static let dischargeDelayIntervalSeconds = 5*60.0
-    static let dischargeBackoffIntervalSeconds = 30*60.0
+    static let dischargeBackoffIntervalSeconds = 15*60.0
     static let maxNumBackoffs = 3
     static let minHouseBatteryStateOfChargeForEVCharging = 97.5
-//    static let evChargerPowerTopic = "dashbox/01001232/c4/watt"
     static let lastPublishedTimeTopic = "combox/lastPublishedTime"
     
     // Combox topics
@@ -400,6 +400,8 @@ class BaseDevice: NSObject, Mappable, ObservableObject
     
     func getAvailableSolarPower() -> Float
     {
+        var houseBatteryDischargeAmount: Float = 0.0
+        
         self.checkHouseBatteryStateOfCharge()
         
         // During a discharge backoff return that we have no solar power
@@ -415,23 +417,33 @@ class BaseDevice: NSObject, Mappable, ObservableObject
         }
         
         // We may be in a delay because of drawing from the house battery
-        if self.inHouseBatteryDischargingDelay
-        {
-            return self.availableSolarPowerFloat
-        }
+//        if self.inHouseBatteryDischargingDelay
+//        {
+//            return self.availableSolarPowerFloat
+//        }
         
         // We are in a charging state and have a high enough voltage
-        if ((self.getCurrentBatteryPower() ?? 0.0) < 0)
+        // Allow a slight discharge
+        if let currentBatteryPower = self.getCurrentBatteryPower()
         {
-            // Start a timer and if we are still in discharge more after the timer then return no solar available
-            self.setHouseBatteryDischargeDelay()
-            
-            // Return the value we previously calculated
-            return self.availableSolarPowerFloat
+            if currentBatteryPower < BaseDevice.batteryDischargeLimit
+            {
+                // Figure out something different
+                // We need to start a timer to check if we are still negative at some future time (basically like we are doing now)
+                // But instead of just ignoring the discharge we need to remove the amount we are discharging the batteries from the total available
+                houseBatteryDischargeAmount = abs(currentBatteryPower)
+                
+                
+                // Start a timer and if we are still in discharge more after the timer then return no solar available
+                if !self.inHouseBatteryDischargingDelay
+                {
+                    self.setHouseBatteryDischargeDelay()
+                }
+            }
         }
         
-        // We have power into the house battery
-        return min(BaseDevice.maxSolarPowerAvailable - ((self.getCurrentTotalPowerFromSolar() ?? 0.0) - self.evChargerPower), BaseDevice.maxPowerAvailableToEVCharger)
+        let amountUsedMinusEVCharger = ((self.getCurrentTotalPowerFromSolar() ?? 0.0) - self.evChargerPower - houseBatteryDischargeAmount)
+        return min(BaseDevice.maxSolarPowerAvailable - amountUsedMinusEVCharger, BaseDevice.maxPowerAvailableToEVCharger)
     }
     
     func checkHouseBatteryStateOfCharge() -> Void
@@ -441,7 +453,6 @@ class BaseDevice: NSObject, Mappable, ObservableObject
         {
             if let stateOfCharge = self.getCurrentBatteryStateOfCharge()
             {
-                
                 if stateOfCharge < Float(BaseDevice.minHouseBatteryStateOfChargeForEVCharging)
                 {
                     if !self.inDischargeBackoff
@@ -462,12 +473,13 @@ class BaseDevice: NSObject, Mappable, ObservableObject
         self.inHouseBatteryDischargingDelay = true
         let _ = Timer.scheduledTimer(withTimeInterval: BaseDevice.dischargeDelayIntervalSeconds, repeats: true) { timer in
             // If we are still negative then go into backoff
-            if ((self.getCurrentBatteryPower() ?? 0.0) < 0)
+            if ((self.getCurrentBatteryPower() ?? 0.0) < BaseDevice.batteryDischargeLimit)
             {
                 self.setDischargeBackoff()
                 self.inDischargeBackoff = true
             }
             self.inHouseBatteryDischargingDelay = false
+            self.reasonForLowOrNoSolarAvailable = ""
         }
     }
     
@@ -486,11 +498,12 @@ class BaseDevice: NSObject, Mappable, ObservableObject
                     return
                 }
                 // If we are still negative then stay in backoff for another timer interval or stay in backoff if we have exceeded the number of backoffs
-                if ((self.getCurrentBatteryPower() ?? 0.0) < 0)
+                if ((self.getCurrentBatteryPower() ?? 0.0) < BaseDevice.batteryDischargeLimit)
                 {
                     self.setDischargeBackoff()
                 }
                 self.inDischargeBackoff = false
+                self.reasonForLowOrNoSolarAvailable = ""
             }
         }
     }
