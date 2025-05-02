@@ -14,11 +14,11 @@ import Alamofire
 class BaseDevice: NSObject, Mappable, ObservableObject
 {
     static let dashboxTimeIntervalSeconds = 2.0
-    static let dashboxHost = "dashbox.vickeryranch.com"
+    static let dashboxHost = "dashbox.internal.fiedlervickery.com"
     static let modbusTimeIntervalSeconds = 2.0
     static let mqttTimeIntervalSeconds = 5.0
     static let mqttClientID = "combox_server"
-    static let mqttHost = "192.168.211.1"
+    static let mqttHost = "mqtt.internal.fiedlervickery.com"
     static let mqttPort: UInt16 = 1883
     
     static let maxSolarPowerAvailable: Float = 9600.0
